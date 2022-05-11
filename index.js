@@ -3,34 +3,30 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 const generateReadMe = ({ title, description,contents, installation, usage, contributing, tests, license, github, email }) =>
-    `
-    # ${title}
-    ## Description
-    ${description}
-    ## Table of ${contents}
-    [Installation](#installation)
-    [Usage](#usage)
-    [Credits](#credits)
-    [License](#license)
-    ## Installation 
-    ${installation}
-    ## Usage
-    ${usage}
-    ## Contributing
-    ${contributing}
-    ## Tests
-    ${tests}
-    ## License
-    ${license}
-    ## Question
-    If you have any questions, please feel free to reach out via:
-    GitHub: ${github}
-    Email: ${email}
-`;
+`# ${title}
+# Description
+${description} 
+## Table of ${contents}
+*[Installation](#installation)
+*[Usage](#usage)
+*[Credits](#credits)
+*[License](#license)
+## Installation 
+${installation}
+## Usage
+${usage}
+## Contributing
+${contributing}
+## Tests
+${tests}
+## License
+${license}
+## Question
+If you have any questions, please feel free to reach out via:
+GitHub: ${github}
+Email: ${email}`;
 
-// TODO: Create an array of questions for user input
-inquirer
-  .prompt([
+inquirer.prompt([
     {   
         type: 'input',
         message: "What is the name of the project?",
@@ -84,7 +80,8 @@ inquirer
     }
 
 ])
-    
+
+
     .then((answers) => {
     const readMEContent = generateReadMe(answers);
         
