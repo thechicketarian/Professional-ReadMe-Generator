@@ -1,30 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-
-const generateReadMe = ({ title, description,contents, installation, usage, contributing, tests, license, github, email }) =>
-`# ${title}
-# Description
-${description} 
-## Table of ${contents}
-*[Installation](#installation)
-*[Usage](#usage)
-*[Credits](#credits)
-*[License](#license)
-## Installation 
-${installation}
-## Usage
-${usage}
-## Contributing
-${contributing}
-## Tests
-${tests}
-## License
-${license}
-## Question
-If you have any questions, please feel free to reach out via:
-GitHub: ${github}
-Email: ${email}`;
+const generateMarkdown = require('./utils/generateMarkdown')
 
 inquirer.prompt([
     {   
@@ -65,7 +42,7 @@ inquirer.prompt([
     {   
         type: 'list',
         message: "Choose license for this project?",
-        choices: ['Commercial','Creative Commons','Private'],
+        choices: ['MIT','Apache','Gnu-3'],
         name: 'license'
     },
     {   
@@ -83,7 +60,7 @@ inquirer.prompt([
 
 
     .then((answers) => {
-    const readMEContent = generateReadMe(answers);
+    const readMEContent = generateMarkdown(answers);
         
     fs.writeFile('README.md', readMEContent, (err) =>
     err ? console.log(err) : console.log('Success! You create a README.md file!')
