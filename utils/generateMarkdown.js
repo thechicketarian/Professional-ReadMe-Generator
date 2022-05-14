@@ -95,26 +95,28 @@ function generateMarkdown({ title, description,contents, installation, usage, co
 ${licenseBadge}
 # Description
 ${description} 
-## Table of ${contents}
-*[Installation](#installation)
-*[Usage](#usage)
-*[Credits](#credits)
-*[License](#license)
-## Installation 
+## Directory: ${contents}
+*[Installation](#installation)\
+*[Usage](#usage)\
+*[Credits](#credits)\
+*[License](#license)\
+# Installation 
 ${installation}
-## Usage
+# Usage
 ${usage}
-## Contributing
+# Contributing
 ${contributing}
-## Tests
+# Tests
 ${tests}
-## License
+# License
 ${licenseDisclosure}
-## Question
-If you have any questions, please feel free to reach out via:
-GitHub: ${gitHub}
+# Questions
+If you have any questions, please feel free to reach out via:\
+GitHub: ${gitHub}\
 Email: ${email}
-
+# Demo Video
+Preview the command-line application here\
+[Click Here To View Demo Video](https://thechicketarian.github.io/Professional-ReadMe-Generator/)
 `;
 }
 
